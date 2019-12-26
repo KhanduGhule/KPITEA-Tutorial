@@ -1,0 +1,5 @@
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Entities\bin\Debug\KPITEA.Entities.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Entities\bin\Debug\KPITEA.Entities.pdb
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Entities\obj\Debug\KPITEA.Entities.csprojResolveAssemblyReference.cache
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Entities\obj\Debug\KPITEA.Entities.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Entities\obj\Debug\KPITEA.Entities.pdb

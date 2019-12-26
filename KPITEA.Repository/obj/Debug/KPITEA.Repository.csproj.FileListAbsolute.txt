@@ -1,0 +1,14 @@
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\aspnet-KPITEA-20191224013348.mdf
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\aspnet-KPITEA-20191224013348_log.ldf
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\KPITEA.Repository.dll.config
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\KPITEA.Repository.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\KPITEA.Repository.pdb
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\EntityFramework.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\KPITEA.Entities.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\KPITEA.Entities.pdb
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\EntityFramework.xml
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\obj\Debug\KPITEA.Repository.csprojResolveAssemblyReference.cache
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\obj\Debug\KPITEA.Repository.dll
+C:\Users\PC234\Documents\Visual Studio 2015\Projects\KPITEA\KPITEA.Repository\obj\Debug\KPITEA.Repository.pdb

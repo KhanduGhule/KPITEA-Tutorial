@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KPITEAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblArea">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="AreaID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Areaname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblSubAreas" Relationship="Self.FK_tblSubArea_tblSubArea" FromRole="tblArea" ToRole="tblSubArea" />
+  </EntityType>
+  <EntityType Name="tblCity">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblLocations" Relationship="Self.FK_tblLocations_tblCity" FromRole="tblCity" ToRole="tblLocations" />
+  </EntityType>
+  <EntityType Name="tblContact">
+    <Key>
+      <PropertyRef Name="ContactsID" />
+    </Key>
+    <Property Name="ContactsID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Subtype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNo" Type="Byte" Nullable="false" />
+    <Property Name="RelationID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IsinActive" Type="Boolean" Nullable="false" />
+    <Property Name="LastChangedAt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblLocations" Relationship="Self.FK_Locations_Employee" FromRole="tblCountry" ToRole="tblLocations" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Byte" Nullable="false" />
+    <Property Name="Marital_Status" Type="Boolean" Nullable="false" />
+    <Property Name="LastChangedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tblEmployee1" Relationship="Self.FK_Employee_Employee" FromRole="tblEmployee" ToRole="tblEmployee1" />
+    <NavigationProperty Name="tblEmployee2" Relationship="Self.FK_Employee_Employee" FromRole="tblEmployee1" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="Location_ID" />
+    </Key>
+    <Property Name="Location_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="StateID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CityID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AreaID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SubareaID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Line1_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="LastChangedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tblCity" Relationship="Self.FK_tblLocations_tblCity" FromRole="tblLocations" ToRole="tblCity" />
+    <NavigationProperty Name="tblCountry" Relationship="Self.FK_Locations_Employee" FromRole="tblLocations" ToRole="tblCountry" />
+  </EntityType>
+  <EntityType Name="tblRelation">
+    <Key>
+      <PropertyRef Name="RelationID" />
+    </Key>
+    <Property Name="RelationID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastChangedAt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblState">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSubArea">
+    <Key>
+      <PropertyRef Name="SubAreaID" />
+    </Key>
+    <Property Name="SubAreaID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SubAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblArea" Relationship="Self.FK_tblSubArea_tblSubArea" FromRole="tblSubArea" ToRole="tblArea" />
+  </EntityType>
+  <Association Name="FK_tblSubArea_tblSubArea">
+    <End Role="tblArea" Type="Self.tblArea" Multiplicity="1" />
+    <End Role="tblSubArea" Type="Self.tblSubArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblArea">
+        <PropertyRef Name="AreaID" />
+      </Principal>
+      <Dependent Role="tblSubArea">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLocations_tblCity">
+    <End Role="tblCity" Type="Self.tblCity" Multiplicity="1" />
+    <End Role="tblLocations" Type="Self.tblLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCity">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tblLocations">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Employee">
+    <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="1" />
+    <End Role="tblLocations" Type="Self.tblLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCountry">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="tblLocations">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Employee">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="1" />
+    <End Role="tblEmployee1" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="tblEmployee1">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KPITEAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAreas" EntityType="Self.tblArea" />
+    <EntitySet Name="tblCities" EntityType="Self.tblCity" />
+    <EntitySet Name="tblContacts" EntityType="Self.tblContact" />
+    <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
+    <EntitySet Name="tblRelations" EntityType="Self.tblRelation" />
+    <EntitySet Name="tblStates" EntityType="Self.tblState" />
+    <EntitySet Name="tblSubAreas" EntityType="Self.tblSubArea" />
+    <AssociationSet Name="FK_tblSubArea_tblSubArea" Association="Self.FK_tblSubArea_tblSubArea">
+      <End Role="tblArea" EntitySet="tblAreas" />
+      <End Role="tblSubArea" EntitySet="tblSubAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLocations_tblCity" Association="Self.FK_tblLocations_tblCity">
+      <End Role="tblCity" EntitySet="tblCities" />
+      <End Role="tblLocations" EntitySet="tblLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Employee" Association="Self.FK_Locations_Employee">
+      <End Role="tblCountry" EntitySet="tblCountries" />
+      <End Role="tblLocations" EntitySet="tblLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tblEmployee1" EntitySet="tblEmployees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
