@@ -9,21 +9,21 @@
     function SubmitRegistrationData() {
         valid = validateContact();
         if (valid) {
-            alert('hahahahaha');
+            return true;
         }
+
+        return false;
     }
     $(document).ready(function () {
 
-        
+
 
     });
 </script>
 <style>
-
-
     #form-registration {
         border-top: #F0F0F0 2px solid;
-        background: #FAF8F8;
+        /*background: #FAF8F8;*/
         padding: 10px;
     }
 
@@ -31,14 +31,15 @@
             margin-bottom: 15px;
         }
 
-    #form-registration div label {
-        margin-left: 5px;
-    }
+            #form-registration div label {
+                margin-left: 5px;
+            }
 
     .demoInputBox {
         padding: 10px;
         border: #F0F0F0 1px solid;
         border-radius: 4px;
+        width: 100%;
     }
 
     .btnAction {
@@ -49,9 +50,9 @@
         border: #F0F0F0 1px solid;
         border-radius: 4px;
     }
-
-    </style > 
-        <style > .invalid {
+</style>
+<style>
+    .invalid {
         border: #FF0000 1px solid;
     }
 
@@ -62,134 +63,250 @@
         background: #FFA500;
     }
 </style>
+<h2>@ViewBag.Title</h2>
 
-<h2>@ViewBag.Title.</h2>
 <div id="form-registration">
 
+    @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "form-registration" }))
+    {
 
-    @*@using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" , id = "form-registration" }))
-        {*@
-    @*@Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />*@
-    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
-    <div class="form-group">
-        @Html.LabelFor(m => m.FistName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @*@Html.TextBoxFor(m => m.FistName, new { @class = "form-control" })*@
-            <input type="text" name="userName" id="userName" class="demoInputBox" required="true">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FistName, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    @*@Html.TextBoxFor(m => m.FistName, new { @class = "form-control" })*@
+                    <input type="text" name="FistName" id="FistName" class="demoInputBox" required="true">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="text" name="MiddleName" id="Lastname" class="demoInputBox">
+                    @*@Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    @*@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })*@
+                    <input type="text" name="Lastname" id="Lastname" class="demoInputBox" required="true">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="text" name="Email" id="Email" class="demoInputBox" required="true">
+                    @*@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Age, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="text" name="Age" id="Age" class="demoInputBox" required="true">
+                    @*@Html.TextBoxFor(m => m.Age, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaritalStatus, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="radio" name="MaritalStatus" id="Unmarried" checked>Unmarried&nbsp;&nbsp;
+                    <input type="radio" name="MaritalStatus" id="Married">Married
+
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @*@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })*@
-            <input type="text" name="Lastname" id="Lastname" class="demoInputBox" required="true">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Salary, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="text" name="Salary" id="Salary" class="demoInputBox" required="true">
+                    @*@Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Location, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="text" name="Location" id="Location" class="demoInputBox" required="true">
+                    @*@Html.TextBoxFor(m => m.Location, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="password" name="Password" id="Password" class="demoInputBox" required="true">
+                    @*@Html.PasswordFor(m => m.Password, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-6 control-label" })
+                <div class="col-md-10">
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="demoInputBox" required="true">
+                    @*@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
         </div>
     </div>
+
+
+
+
+
     <div class="form-group">
-        @Html.LabelFor(m => m.Age, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+        <div class=" col-md-10">
+            <input type="submit" class="btn btn-default" onclick=" return SubmitRegistrationData();" value="Register" />
+
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.MaritalStatus, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.CheckBoxFor(m => m.MaritalStatus, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Salary, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Location, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="button" class="btn btn-default" onclick="SubmitRegistrationData();" value="Register" />
-        </div>
-    </div>
+
+    }
 </div>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
-    function validateContact() {
-        var valid = true;
-        debugger
+            function validateContact() {
+                var valid = true;
+                var numbers = /^[0-9]+$/;
 
-        $("#form-registration input[required=true]").each(function () {
+                $("#form-registration input[required=true]").each(function () {
 
-            $(this).removeClass('invalid');
-            $(this).attr('title', '');
-            debugger
-            var input = $(this)[0].id
+                    $(this).removeClass('invalid');
+                    $(this).attr('title', '');
+                    debugger
+                    var input = $(this)[0].id
 
 
 
-            if (input == "userName") {
-                if ($(this).attr("type") == "text" && $(this).val().length == 0) {
-                    $(this).addClass('invalid');
-                    $(this).attr('title', 'Enter valid email');
-                    valid = false;
-                }
+                    if (input == "FistName") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'First Name is Required');
+                            valid = false;
+                        }
+                    }
+                    if (input == "Lastname") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Last Name is Required');
+                            valid = false;
+                        }
+                    }
+                    if (input == "Email") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Email ID is Required');
+                            valid = false;
+                        }
+                    }
+                    if (input == "Age") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Age is Required');
+                            valid = false;
+                        }
+                        else if (numbers.test($(this).val()) == false) {
+
+                                $(this).addClass('invalid');
+                                $(this).attr('title', 'Age must be numeric');
+                                valid = false;
+                        }
+                       //else  if ($(this).val() < 18 || $(this).val() > 100) {
+                       //     $(this).addClass('invalid');
+                       //     $(this).attr('title', 'Age must be between 18 to 100');
+                       //     valid = false;
+                       // }
+
+
+                    }
+                    if (input == "Salary") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Salary is Required');
+                            valid = false;
+                        }
+                        else if (numbers.test($(this).val()) == false) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Salary must be numeric');
+                            valid = false;
+                        }
+                    }
+                    if (input == "Location") {
+                        if ($(this).attr("type") == "text" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Location is Required');
+                            valid = false;
+                        }
+                    }
+
+                    if (input == "Password") {
+                        if ($(this).attr("type") == "password" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Password is Required');
+                            valid = false;
+                        }
+                    }
+
+                    if (input == "ConfirmPassword") {
+                        if ($(this).attr("type") == "password" && $(this).val().length == 0) {
+                            $(this).addClass('invalid');
+                            $(this).attr('title', 'Confirm Password is Required');
+                            valid = false;
+                        }
+                        //else if ($("#ConfirmPassword").val() != $("#Password").val())
+                        //{
+                        //    $(this).addClass('invalid');
+                        //    $(this).attr('title', 'Password Confirm Password must be match');
+                        //    valid = false;
+                        //}
+                    }
+                    //if (!$(this).val()) {
+                    //    $(this).addClass('invalid');
+                    //    $(this).attr('title', 'This field is required');
+                    //    valid = false;
+                    //}
+
+                });
+                return valid;
             }
-            if (input == "Lastname") {
-                if ($(this).attr("type") == "text" && $(this).val().length == 0) {
-                    $(this).addClass('invalid');
-                    $(this).attr('title', 'Enter valid email');
-                    valid = false;
-                }
-            }
-          
-            //if (!$(this).val()) {
-            //    $(this).addClass('invalid');
-            //    $(this).attr('title', 'This field is required');
-            //    valid = false;
-            //}
-          
-        });
-        return valid;
-    }
 
-    $(function () {
-        $(document).tooltip({
-            position: { my: "left top", at: "right top" },
-            items: "input[required=true], textarea[required=true]",
-            content: function () { return $(this).attr("title"); }
-        });
+            $(function () {
+                $(document).tooltip({
+                    position: { my: "left top", at: "right top" },
+                    items: "input[required=true], textarea[required=true]",
+                    content: function () { return $(this).attr("title"); }
+                });
 
-       
-    });
+
+            });
 
 </script>
+

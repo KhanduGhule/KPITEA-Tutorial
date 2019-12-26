@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using KPITEA.Repository.Repository;
+using KPITEA.Repository.Interface;
+
 namespace KPITEA.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        private readonly KPITEA.Repository.Interface.IUserRepository _repository;
+        private readonly KPITEA.Repository.Interface.ILoginRepository _loginRepository;
+        public LoginController(IUserRepository repository, KPITEA.Repository.Interface.ILoginRepository loginRepository)
+        {
+            this._repository = repository;
+            this._loginRepository = loginRepository;
+        }
         public ActionResult Index()
         {
             return View();
@@ -21,29 +29,38 @@ namespace KPITEA.Controllers
             return View();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult ValidateUserCredentials(KPITEA.Entities.ViewModel.LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            ViewBag.Message = "Users";
+
+            var IsValidCredentials = _loginRepository.ValidateUserCredentials(model);
+            if (!IsValidCredentials)
             {
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //var result = await UserManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                KPITEA.Repository.Repository.User   User = new KPITEA.Repository.Repository.User();
-
-                 User.Register(model);
-
-                  
-
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //AddErrors(result);
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                Session["LoggedUserId"] = model.Email;
+                return RedirectToAction("Users", "Home");
             }
 
-            // If we got this far, something failed, redisplay form
+            return View();
+        }
+
+
+
+
+        [HttpPost]
+        [AllowAnonymous]      
+        public async Task<ActionResult> Register(RegisterViewModel model)
+        {
+          
+             bool QueryResult=  _repository.Register(model);
+            if (QueryResult)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+             
             return View(model);
         }
     }

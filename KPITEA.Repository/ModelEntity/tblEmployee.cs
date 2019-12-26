@@ -14,6 +14,12 @@ namespace KPITEA.Repository.ModelEntity
     
     public partial class tblEmployee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblEmployee()
+        {
+            this.tblUserCredentials = new HashSet<tblUserCredential>();
+        }
+    
         public decimal Emp_ID { get; set; }
         public string First_name { get; set; }
         public string Middle_name { get; set; }
@@ -26,5 +32,7 @@ namespace KPITEA.Repository.ModelEntity
     
         public virtual tblEmployee tblEmployee1 { get; set; }
         public virtual tblEmployee tblEmployee2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUserCredential> tblUserCredentials { get; set; }
     }
 }

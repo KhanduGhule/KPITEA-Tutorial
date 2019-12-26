@@ -5,19 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="50405af1475e463a8781145e42a22606" Name="Diagram1">
-        <EntityTypeShape EntityType="KPITEAModel.tblArea" Width="1.5" PointX="2.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblCity" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblContact" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblCountry" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="KPITEAModel.tblEmployee" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblLocation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblRelation" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblState" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KPITEAModel.tblSubArea" Width="1.5" PointX="5" PointY="5.875" IsExpanded="true" />
-        <AssociationConnector Association="KPITEAModel.FK_tblSubArea_tblSubArea" ManuallyRouted="false" />
-        <AssociationConnector Association="KPITEAModel.FK_tblLocations_tblCity" ManuallyRouted="false" />
-        <AssociationConnector Association="KPITEAModel.FK_Locations_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="KPITEAModel.FK_Employee_Employee" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KPITEAModel.tblUserCredential" Width="1.5" PointX="2" PointY="2.125" />
+        <AssociationConnector Association="KPITEAModel.FK_tblUserCredentials_tblEmployee" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

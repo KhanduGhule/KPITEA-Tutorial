@@ -1,44 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="KPITEAModelStoreContainer" CdmEntityContainer="KPITEAEntities1">
-    <EntitySetMapping Name="tblAreas">
-      <EntityTypeMapping TypeName="KPITEAModel.tblArea">
-        <MappingFragment StoreEntitySet="tblArea">
-          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
-          <ScalarProperty Name="Areaname" ColumnName="Areaname" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblCities">
-      <EntityTypeMapping TypeName="KPITEAModel.tblCity">
-        <MappingFragment StoreEntitySet="tblCity">
-          <ScalarProperty Name="CityID" ColumnName="CityID" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblContacts">
-      <EntityTypeMapping TypeName="KPITEAModel.tblContact">
-        <MappingFragment StoreEntitySet="tblContacts">
-          <ScalarProperty Name="ContactsID" ColumnName="ContactsID" />
-          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Subtype" ColumnName="Subtype" />
-          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-          <ScalarProperty Name="RelationID" ColumnName="RelationID" />
-          <ScalarProperty Name="IsinActive" ColumnName="IsinActive" />
-          <ScalarProperty Name="LastChangedAt" ColumnName="LastChangedAt" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblCountries">
-      <EntityTypeMapping TypeName="KPITEAModel.tblCountry">
-        <MappingFragment StoreEntitySet="tblCountry">
-          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tblEmployees">
       <EntityTypeMapping TypeName="KPITEAModel.tblEmployee">
         <MappingFragment StoreEntitySet="tblEmployee">
@@ -54,47 +16,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblLocations">
-      <EntityTypeMapping TypeName="KPITEAModel.tblLocation">
-        <MappingFragment StoreEntitySet="tblLocations">
-          <ScalarProperty Name="Location_ID" ColumnName="Location_ID" />
-          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-          <ScalarProperty Name="StateID" ColumnName="StateID" />
-          <ScalarProperty Name="CityID" ColumnName="CityID" />
-          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
-          <ScalarProperty Name="SubareaID" ColumnName="SubareaID" />
-          <ScalarProperty Name="Line1_address" ColumnName="Line1_address" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="LastChangedAt" ColumnName="LastChangedAt" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblRelations">
-      <EntityTypeMapping TypeName="KPITEAModel.tblRelation">
-        <MappingFragment StoreEntitySet="tblRelation">
-          <ScalarProperty Name="RelationID" ColumnName="RelationID" />
-          <ScalarProperty Name="Relation" ColumnName="Relation" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="LastChangedAt" ColumnName="LastChangedAt" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblStates">
-      <EntityTypeMapping TypeName="KPITEAModel.tblState">
-        <MappingFragment StoreEntitySet="tblState">
-          <ScalarProperty Name="StateID" ColumnName="StateID" />
-          <ScalarProperty Name="StateName" ColumnName="StateName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblSubAreas">
-      <EntityTypeMapping TypeName="KPITEAModel.tblSubArea">
-        <MappingFragment StoreEntitySet="tblSubArea">
-          <ScalarProperty Name="SubAreaID" ColumnName="SubAreaID" />
-          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
-          <ScalarProperty Name="SubAreaName" ColumnName="SubAreaName" />
+    <EntitySetMapping Name="tblUserCredentials">
+      <EntityTypeMapping TypeName="KPITEAModel.tblUserCredential">
+        <MappingFragment StoreEntitySet="tblUserCredentials">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

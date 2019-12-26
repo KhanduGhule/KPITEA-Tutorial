@@ -12,15 +12,15 @@ namespace KPITEA.Repository.ModelEntity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblContact
+    public partial class tblUserCredential
     {
-        public decimal ContactsID { get; set; }
-        public decimal Emp_ID { get; set; }
-        public string Type { get; set; }
-        public string Subtype { get; set; }
-        public byte ContactNo { get; set; }
-        public decimal RelationID { get; set; }
-        public bool IsinActive { get; set; }
-        public System.DateTime LastChangedAt { get; set; }
+        public decimal Id { get; set; }
+        public string Username { get; set; }
+        public string EmailId { get; set; }
+        public string PasswordHash { get; set; }
+        public bool IsApproved { get; set; }
+        public decimal EmployeeId { get; set; }
+    
+        public virtual tblEmployee tblEmployee { get; set; }
     }
 }

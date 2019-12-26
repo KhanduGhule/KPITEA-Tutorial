@@ -25,14 +25,7 @@ namespace KPITEA.Repository.ModelEntity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblArea> tblAreas { get; set; }
-        public virtual DbSet<tblCity> tblCities { get; set; }
-        public virtual DbSet<tblContact> tblContacts { get; set; }
-        public virtual DbSet<tblCountry> tblCountries { get; set; }
         public virtual DbSet<tblEmployee> tblEmployees { get; set; }
-        public virtual DbSet<tblLocation> tblLocations { get; set; }
-        public virtual DbSet<tblRelation> tblRelations { get; set; }
-        public virtual DbSet<tblState> tblStates { get; set; }
-        public virtual DbSet<tblSubArea> tblSubAreas { get; set; }
+        public virtual DbSet<tblUserCredential> tblUserCredentials { get; set; }
     }
 }
